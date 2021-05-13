@@ -1,0 +1,30 @@
+<!-- Main -->
+<div id="main">
+    <div class="inner">
+        <h1>Products</h1>
+        <form class="mt-4 mb-4" method="POST" action="/product/search">
+            <input class="form-control col-sm-8" name="name" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <div class="image main">
+            <img src="images/banner-image-6-1920x500.jpg" class="img-fluid" alt="" />
+        </div>
+
+        <!-- Products -->
+        <section class="tiles">
+            {{#each product}}
+            <article class="style1">
+                <span class="image">
+                    <img src="{{this.image}}" alt="{{this.name}}" />
+                </span>
+                <a href="/product/{{this.slug}}">
+                    <h2>{{this.name}}</h2>
+
+                    <p><del>{{this.oldprice}}</del> <strong>{{this.price}}</strong></p>
+
+                    <p>{{this.sortdescription}}</p>
+                </a>
+            </article>
+            {{/each}}
+    </div>
+</div>

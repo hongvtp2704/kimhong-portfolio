@@ -1,0 +1,73 @@
+<div class="row mt-4 mb-5">
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Created At</th>
+                    <th scope="col">Update At</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each products}}
+                <tr>
+                    <th scope="row">{{ sum @index 1 }}</th>
+                    <td>{{this.name}}</td>
+                    <td>{{this.price}}</td>
+                    <td>@{{this.createdAt}}</td>
+                    <td>@{{this.updatedAt}}</td>
+                    <td><a class="btn btn-primary" href="/manage/product/{{this._id}}/edit">Edit</a></td>
+                    <td><a class="btn btn-danger" data-bs-toggle="modal" data-id="{{this._id}}"
+                            data-bs-target="#delete-product-modal" href="#">Delete</a></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Confirm delete course -->
+<div class="modal fade" id="delete-product-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Alert</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Do you want delete?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" id="btn-delete-product" class="btn btn-primary">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- DELETE Hiden Form -->
+<form id="delete-product-form" method="POST"></form>
+
+<script>
+    var productId;
+    var deleteForm = document.getElementById("delete-product-form");
+    var btnDeleteProduct = document.getElementById('btn-delete-product');
+    document.addEventListener("DOMContentLoaded", function () {
+        $('#delete-product-modal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            productId = button.data('id');
+        })
+
+        btnDeleteProduct.onclick = function () {
+            deleteForm.action = '/manage/product/' + productId + '?_method=DELETE';
+            deleteForm.submit();
+        }
+    });
+
+
+
+</script>

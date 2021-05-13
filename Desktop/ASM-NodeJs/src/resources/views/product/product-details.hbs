@@ -1,0 +1,73 @@
+<!-- Product-detail -->
+<div id="main">
+    <div class="inner">
+        <h1>{{product.name}}<span class="pull-right"><del>{{product.oldprice}} VNĐ </del> {{product.price}} VNĐ</span>
+        </h1>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="{{product.image}}" class="img-fluid" alt="{{product.name}}">
+                </div>
+
+                <div class="col-md-7">
+                    <p>{{product.sortdescription}}</p>
+
+                    <p>{{product.description}}</p>
+
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                            <label class="control-label">Quantity</label>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <input type="text">
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <form action="#">
+                                        <input type="submit" class="primary" value="Add to Cart">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <br>
+        <div class="container-fluid">
+            <h2 class="h2">Comment</h2>
+            <form action="#" class="formCmt">
+                <input type="text" name="comment" class="form-control">
+                <button type="submit" class="btn btn-success btnadd">Send</button>
+            </form>
+        </div>
+        {{!-- <div class="container-fluid mt-5">
+            <h2 class="h2 ">Similar Products</h2>
+
+            <!-- Products -->
+            <section class="tiles">
+                {{#each products}}
+                <article class="style1">
+                    <span class="image">
+                        <img src="{{this.image}}" alt="{{this.name}}" />
+                    </span>
+                    <a href="product-details.html">
+                        <h2>{{this.name}}</h2>
+
+                        <p><del>{{this.oldprice}}</del> <strong>{{this.price}}</strong></p>
+
+                        <p>{{this.sortdescription}}</p>
+                    </a>
+                </article>
+                {{/each}}
+            </section>
+        </div> --}}
+    </div>
+</div>

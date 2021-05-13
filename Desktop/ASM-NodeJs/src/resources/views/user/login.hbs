@@ -1,0 +1,25 @@
+<!--Log-in-->
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6 mt-3 mb-5 mt-0 border border-1 p-5 rounded">
+            <form action="/user/login" method="POST">
+                <h1 class="mb-3">Log-in</h1>
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input name="email" class="form-control" type="email">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input name="password" id="password" class="form-control" type="password">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success justify-content-end btnadd mb-4 mt-4">Log-in</button>
+                    <div class="grBtn">
+                        <label class="mr-4">If you don't have a Account</label>
+                        <a href="/user/signup" class="btn btn-primary btnadd">Sign-up</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
